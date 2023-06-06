@@ -1,0 +1,13 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Amount</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Type</mat-label>
+    <!-- generate for to get types -->
+    <mat-select>
+      <mat-option *ngFor="let type of types" value="one">{{type}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
