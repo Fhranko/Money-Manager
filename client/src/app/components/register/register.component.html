@@ -1,13 +1,13 @@
 <div class="container">
   <mat-form-field>
     <mat-label>Amount</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="amount">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Type</mat-label>
-    <!-- generate for to get types -->
-    <mat-select>
-      <mat-option *ngFor="let type of types" value="one">{{type}}</mat-option>
+    <mat-label>Select one</mat-label>
+    <mat-select [(ngModel)]="selectedType">
+      <mat-option *ngFor="let type of types" value={{type}}>{{type}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <button (click)="saveTransaction()" mat-raised-button color="primary">Save</button>
 </div>
