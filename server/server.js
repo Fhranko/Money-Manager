@@ -14,6 +14,7 @@ app.use(express.json());
 
 const mongoose = require('mongoose');
 const { Transaction } = require('./models/transaction');
+const { Category } = require('./models/category');
 
 mongoose
 	.connect('mongodb://localhost:27017/MoneyManagerBd', {
@@ -53,6 +54,25 @@ app.post('/api/transaction', async function (req, res) {
 			data: error,
 		});
 		// res.send(error.message);
+	}
+});
+
+app.get('/api/categories', async function (req, res) {
+	// read types from types collection
+
+	try {
+		const categories = await Category.find();
+		res.send({
+			status: true,
+			message: 'Categorías obtenidas satisfactoriamente',
+			data: categories,
+		});
+	} catch (error) {
+		res.send({
+			status: false,
+			message: error.message,
+			data: error,
+		});
 	}
 });
 

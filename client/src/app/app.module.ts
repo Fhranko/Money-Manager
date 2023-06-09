@@ -17,18 +17,11 @@ import { NgIf } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { RegisterComponent } from './components/register/register.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    ToolbarComponent,
-    SidebarComponent,
-  ],
+  declarations: [AppComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

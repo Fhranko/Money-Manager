@@ -2,22 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Response } from '../interfaces/interfaces';
 
-interface Transaction {
+interface Service {
   _id: string;
-  amount: number;
-  type: string;
+  name: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
-export class TransactionsService {
+export class TypesService {
   constructor(private http: HttpClient) {}
 
-  saveTransaction(data: object) {
-    return this.http.post<Response<Transaction>>(
-      'http://localhost:8080/api/transaction',
-      data
+  getTypes() {
+    return this.http.get<Response<Service>>(
+      'http://localhost:8080/api/categories'
     );
   }
 }
