@@ -19,9 +19,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RegisterComponent } from './components/register/register.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent, RegisterComponent, CategoriesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

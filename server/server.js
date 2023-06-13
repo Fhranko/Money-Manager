@@ -17,7 +17,7 @@ const { Transaction } = require('./models/transaction');
 const { Category } = require('./models/category');
 
 mongoose
-	.connect('mongodb://localhost:27017/MoneyManagerBd', {
+	.connect('mongodb://127.0.0.1:27017/MoneyManagerBd', {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})

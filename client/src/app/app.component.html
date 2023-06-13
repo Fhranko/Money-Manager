@@ -1,4 +1,17 @@
-<!-- <app-sidebar></app-sidebar> -->
-<main class="main">
-  <app-register></app-register>
-</main>
+<mat-drawer-container autosize>
+  <mat-drawer class="example-sidenav-content" #drawer mode="side" opened="true">
+    <mat-list role="list">
+      <a mat-list-item routerLink="/transactions" routerLinkActive="active-link" class="mat-list-item">
+        Registrar Transacciones
+      </a>
+      <a mat-list-item routerLink="/categories" routerLinkActive="active-link" class="mat-list-item">
+        Registrar Categorías
+      </a>
+    </mat-list>
+  </mat-drawer>
+  <main class="main">
+    <router-outlet>
+      <!-- <app-register></app-register> -->
+    </router-outlet>
+  </main>
+</mat-drawer-container>

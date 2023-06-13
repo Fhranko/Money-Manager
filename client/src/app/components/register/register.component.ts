@@ -41,8 +41,6 @@ export class RegisterComponent implements OnInit {
           duration: 2000,
         });
 
-        console.log(response);
-
         this.amount = 0;
         this.selectedType = '';
       },
