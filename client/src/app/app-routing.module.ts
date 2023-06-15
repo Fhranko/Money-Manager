@@ -4,6 +4,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 
 const routes: Routes = [
+  { path: '', component: RegisterComponent },
   { path: 'transactions', component: RegisterComponent },
   { path: 'categories', component: CategoriesComponent },
 ];

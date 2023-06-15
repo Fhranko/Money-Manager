@@ -16,6 +16,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 import { RegisterComponent } from './components/register/register.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -39,6 +42,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

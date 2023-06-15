@@ -9,5 +9,11 @@
       <mat-option *ngFor="let type of types" value={{type}}>{{type}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
   <button (click)="saveTransaction()" mat-raised-button color="primary">Save</button>
 </div>
