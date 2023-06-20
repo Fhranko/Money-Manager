@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Moment } from 'moment';
+import * as moment from 'moment';
+
 import {
   MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
@@ -42,6 +45,11 @@ export class RegisterComponent implements OnInit {
   types: string[] = typesDB;
   amount: number = 0;
   selectedType: string = '';
+  transactionDate: Moment = moment();
+
+  transactions: object[] = [];
+
+  displayedColumns: string[] = ['date', 'type', 'amount'];
 
   ngOnInit(): void {
     this.typesService.getTypes().subscribe({
@@ -54,16 +62,42 @@ export class RegisterComponent implements OnInit {
         });
       },
     });
+
+    this.getTransactions();
+  }
+
+  getTransactions(): void {
+    this.transactionsService.getTransactions().subscribe({
+      next: (response) => {
+        response.data = response.data.map((transaction) => {
+          transaction.date = moment(transaction.date).format('DD/MM/YYYY');
+          return transaction;
+        });
+
+        this.transactions = response.data;
+      },
+      error: (error) => {
+        this._snackBar.open(error.message, 'Cerrar', {
+          duration: 2000,
+        });
+      },
+    });
   }
 
   saveTransaction(): void {
-    const data = { amount: this.amount, type: this.selectedType };
+    const data = {
+      amount: this.amount,
+      type: this.selectedType,
+      date: this.transactionDate,
+    };
 
     this.transactionsService.saveTransaction(data).subscribe({
       next: (response) => {
         this._snackBar.open(response.message, 'Cerrar', {
           duration: 2000,
         });
+
+        this.getTransactions();
 
         this.amount = 0;
         this.selectedType = '';

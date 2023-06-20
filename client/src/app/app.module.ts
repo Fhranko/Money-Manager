@@ -23,6 +23,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [AppComponent, RegisterComponent, CategoriesComponent],
@@ -44,6 +45,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

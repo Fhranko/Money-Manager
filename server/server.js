@@ -33,11 +33,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/transaction', async function (req, res) {
-	const { amount, type } = req.body;
+	const { amount, type, date } = req.body;
 
 	const transaction = new Transaction({
 		amount: amount,
 		type: type,
+		date: date,
 	});
 
 	try {
@@ -53,13 +54,27 @@ app.post('/api/transaction', async function (req, res) {
 			message: error.message,
 			data: error,
 		});
-		// res.send(error.message);
+	}
+});
+
+app.get('/api/transactions', async function (req, res) {
+	try {
+		const transactions = await Transaction.find();
+		res.send({
+			status: true,
+			message: 'Transacciones obtenidas satisfactoriamente',
+			data: transactions,
+		});
+	} catch (error) {
+		res.send({
+			status: false,
+			message: error.message,
+			data: error,
+		});
 	}
 });
 
 app.get('/api/categories', async function (req, res) {
-	// read types from types collection
-
 	try {
 		const categories = await Category.find();
 		res.send({

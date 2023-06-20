@@ -6,6 +6,7 @@ interface Transaction {
   _id: string;
   amount: number;
   type: string;
+  date: string;
 }
 
 @Injectable({
@@ -18,6 +19,12 @@ export class TransactionsService {
     return this.http.post<Response<Transaction>>(
       'http://localhost:8080/api/transaction',
       data
+    );
+  }
+
+  getTransactions() {
+    return this.http.get<Response<Transaction>>(
+      'http://localhost:8080/api/transactions'
     );
   }
 }
